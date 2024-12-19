@@ -1,8 +1,8 @@
 import React, {useState} from 'react';
 import {DndContext} from '@dnd-kit/core';
 
-import {Container} from './Container/Container';
-import {Pan} from './Pan/Pan';
+import Container from './Container/Container';
+import Pan from './Pan/Pan';
 
 const App = () => {
   const containers = ['A', 'B', 'C'];

@@ -1,5 +1,6 @@
 import React from 'react';
 import {useDroppable} from '@dnd-kit/core';
+import './Container.css'
 
 const Container = (props) => {
   const {isOver, setNodeRef} = useDroppable({
@@ -10,7 +11,7 @@ const Container = (props) => {
   };
   
   return (
-    <div ref={setNodeRef} style={style}>
+    <div ref={setNodeRef} style={style} className="container">
       {props.children}
     </div>
   );
