@@ -5,6 +5,9 @@
         "case_unhinged":"lavender-unhinged.jpg",
         "case_open":"lavender-open.jpg",
         "location":"Poland",
-        "spots":"9"
+        "maxPans":"9",
+        "filledPans":"3",
+        "height":  "300px",
+        "width" : "400px"
     }
 ]
