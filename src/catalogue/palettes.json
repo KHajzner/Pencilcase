@@ -6,7 +6,10 @@
         "case_open":"lavender-open.jpg",
         "location":"Poland",
         "maxPans":"9",
-        "filledPans":"3",
+        "filledPans":[{"uid": "0", "colour": "Yellow"},
+        { "uid": "1", "colour": "Yellow"},
+         {"uid": "2", "colour": "Yellow"}
+],
         "height":  "300px",
         "width" : "400px"
     }
