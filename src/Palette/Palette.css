@@ -12,3 +12,6 @@
     width: 80%;
     height: 80%;
 }
+.container{
+    position: absolute;
+}

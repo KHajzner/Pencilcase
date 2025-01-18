@@ -1,12 +1,5 @@
 [
     {
-        "name":"Main Palette",
-        "case_closed":"lavender-closed.png",
-        "case_unhinged":"lavender-closed.jpg",
-        "case_open":"lavender-closed.jpg",
-        "location":"Poland"
-    },
-    {
         "name":"Lavender Palette",
         "case_closed":"lavender-closed.png",
         "case_unhinged":"lavender-unhinged.jpg",
