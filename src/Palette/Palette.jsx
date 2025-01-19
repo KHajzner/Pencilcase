@@ -12,7 +12,6 @@ import {
   arrayMove,
   SortableContext,
   sortableKeyboardCoordinates,
-  verticalListSortingStrategy,
 } from '@dnd-kit/sortable';
 import './Palette.css';
 import Pan from '../Pan/Pan';
@@ -54,6 +53,8 @@ const Palette = (
     backgroundPosition: "center",
     height: palette.height,
     width: palette.width,
+    display: "grid",
+    gridTemplateColumns: "auto auto auto",
   }
 
   return(
@@ -64,7 +65,7 @@ const Palette = (
         onDragEnd={handleDragEnd}
       >
         <div className='palette' style={containerStyle} >
-          <SortableContext items={items}  strategy={verticalListSortingStrategy}>
+          <SortableContext items={items} >
             {items.map(id => <Pan key={id.uid} id={id} colour={id.colour} />)}
           </SortableContext>
         </div>

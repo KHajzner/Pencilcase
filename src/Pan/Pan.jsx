@@ -15,6 +15,7 @@ const Pan = (props) => {
     const style = {
     transform: CSS.Transform.toString(transform),
     transition,
+    display: "inline-grid",
     };
 
     const panImage = require('../Items/Colours/' + props.colour + '.png')
@@ -22,9 +23,9 @@ const Pan = (props) => {
         backgroundImage: `url(${panImage})`, 
         backgroundPosition: "center",
         backgroundSize: "contain",
-        zIndex: 10,
-        height: "100px",
-        width: "100px"
+        height: "90px",
+        width: "80px",
+        margin: "auto",
     }
 
     return (
