@@ -6,12 +6,6 @@
             "open":"lavender-open.png"},
         "location":"Poland",
         "maxPans":"11",
-        "filledPans":
-        [
-            {"uid": "yellow-ochre", "colour": "Yellow", "palette":"Lavender Palette"},
-            { "uid": "yellow-yellow", "colour": "Yellow", "palette":"Lavender Palette"},
-            {"uid": "blueish-yellow", "colour": "Yellow", "palette":"Lavender Palette"}
-        ],
         "height": { "closed":"300px", "hover":"350px", "open":"600px"},
         "width" : "400px"
     },
@@ -22,10 +16,6 @@
         "open":"tulips-open.png"},
         "location":"England",
         "maxPans":"15",
-        "filledPans":
-        [
-            
-        ],
         "height": { "closed":"300px", "hover":"350px", "open":"600px"},
         "width" : "500px"
     }

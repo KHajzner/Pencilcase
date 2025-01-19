@@ -19,7 +19,7 @@ const Pan = (props) => {
 
     };
 
-    const panImage = require('../Items/Colours/' + props.colour + '.png')
+    const panImage = require('../Items/Colours/' + props.id.colour + '.png')
     const panStyle = {
         backgroundImage: `url(${panImage})`, 
         backgroundPosition: "center",

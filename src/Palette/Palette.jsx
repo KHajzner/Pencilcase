@@ -7,6 +7,7 @@ import {
   PointerSensor,
   useSensor,
   useSensors,
+  useDroppable
 } from '@dnd-kit/core';
 import {
   arrayMove,
@@ -16,11 +17,9 @@ import {
 import './Palette.css';
 import Pan from '../Pan/Pan';
 import addEmptyPans from '../utils/addEmptyPans'
-const Palette = (
-   { paletteInstance }
+const Palette = (props
 ) => {
-  const items = paletteInstance.items;
-  const palette = paletteInstance.paletteInstance;
+  const { id, palette, items, activeId} = props;
 
   const [paletteState, setPaletteState] = useState("closed")
   const handleMouseEnter = () => {
@@ -48,13 +47,17 @@ const Palette = (
     width: palette.width,
     padding: `${(lidHeight-25) + 'px'} 10px 0 10px`,
   }
-
+  const { setNodeRef } = useDroppable({
+    id
+  });
   return(
     <>
         <button className='palette' style={containerStyle} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} onClick={handleClick}>
           {paletteState === "open" && (
-          <SortableContext items={items} >
-            {items.map(id => <Pan key={id.uid} id={id} colour={id.colour} height={palette.height["closed"]} />)}
+          <SortableContext items={items} id={id} >
+            <div ref={setNodeRef}>
+              {items.map(id => <Pan key={id.uid} id={id} colour={id.colour} height={palette.height["closed"]} activeId={activeId} />)}
+            </div>
           </SortableContext>) 
           }
         </button>

@@ -1,0 +1,12 @@
+{
+    "Lavender Palette":[
+        {"uid": "yellow-ochre", "colour": "Yellow"},
+        { "uid": "yellow-yellow", "colour": "Yellow"},
+        {"uid": "blueish-yellow", "colour": "Yellow"}
+    ],
+    "Tulip Palette":[
+        {"uid": "Green-ochre", "colour": "Yellow"},
+        { "uid": "Green-yellow", "colour": "Yellow"},
+        {"uid": "blueish-Green", "colour": "Yellow"}
+    ]
+}

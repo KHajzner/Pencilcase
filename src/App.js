@@ -6,6 +6,7 @@ import {
   PointerSensor,
   useSensor,
   useSensors,
+  DragOverlay
 } from '@dnd-kit/core';
 import {
   arrayMove,
@@ -13,8 +14,10 @@ import {
   sortableKeyboardCoordinates,
 } from '@dnd-kit/sortable';
 import Palette from './Palette/Palette';
+import Pan from './Pan/Pan';
 import palettes from  './catalogue/palettes.json'
 import addEmptyPans from './utils/addEmptyPans'
+import mappings from './catalogue/colourMappings.json'
 
 const App = () => {
 
@@ -25,88 +28,117 @@ const App = () => {
         coordinateGetter: sortableKeyboardCoordinates,
       })
     );
-  
-    const initialisePalettes = (isRerender, whichPalette=null, updatedItems=null) =>{
+
+    const initialiseEmptyPans = () =>{
+      return palettes.reduce((acc, palette) => {
+          acc[palette.name] = addEmptyPans(mappings[palette.name], palette.maxPans, palette.name);
+          return acc;
+        }, {});
+    }
+    const [allMappings, setAllMappings] = useState(() => initialiseEmptyPans());
+    
+    const initialisePalettes = () =>{
       return(
         palettes.map((palette) => ({
-          paletteInstance: palette,
-          items: isRerender && whichPalette === palette.name ? updatedItems : addEmptyPans(palette.filledPans, palette.maxPans, palette.name),
+          palette: palette,
+          items: allMappings[palette.name],
         }))
       )
     }
-    const [allPalettes, setAllPalettes] = useState(()=> initialisePalettes(false));
-    // const [dragEvent, setDragEvent] = useState(null); 
-
-    const handleDragEnd = (event) => {
-      const {active, over} = event;
-      if (active.id !== over.id) {
-        if(active.id["palette"] === over.id["palette"]){
-           console.log("Same palette")
-          const currentItems = allPalettes.find(item => item.paletteInstance.name === active.id["palette"]).items
-          const updatedItems = arrayMove(
-            currentItems,
-            currentItems.indexOf(active.id),
-            currentItems.indexOf(over.id)
-          );
-          setAllPalettes(
-            (prevPalettes) => prevPalettes.map((palette) => {
-            if (palette.paletteInstance.name === over.id["palette"]) {
-              return { ...palette, items: updatedItems };
-            }
-            return  palette ;
-          }))
-        }
-        else{
-          const activeItems = allPalettes.find(item => item.paletteInstance.name === active.id["palette"]).items
-          const overItems = allPalettes.find(item => item.paletteInstance.name === over.id["palette"]).items
-          const activePalette = active.id["palette"]
-          const overPalette = over.id["palette"]
-          const newActiveItems = activeItems.map((item, i) => {
-            if (i == activeItems.indexOf(active.id)){
-              const wantedOverItem = overItems[overItems.indexOf(over.id)]
-              wantedOverItem["palette"] = activePalette
-              return item = wantedOverItem
-            }
-            else{
-              return item = activeItems[i]
-            } 
-          })
-          const newOverItems = overItems.map((item, i) => {
-            if (i == overItems.indexOf(over.id)){
-              const wantedItem = activeItems[activeItems.indexOf(active.id)]
-              wantedItem["palette"] = overPalette
-              return item = wantedItem
-            }
-            else{
-              return item = overItems[i]
-            }
-          })
-
-          setAllPalettes(
-            (prevPalettes) => prevPalettes.map((palette) => {
-            if (palette.paletteInstance.name === overPalette) {
-              return { ...palette, items: newOverItems };
-            }
-            else if (palette.paletteInstance.name === overPalette) {
-              return  { ...palette, items: newActiveItems };
-            }
-            return palette;
-          }))
-        }
-      }
+    const [allPalettes, setAllPalettes] = useState(()=> initialisePalettes());
+    
+    useEffect(()=>{
+      setAllPalettes(() => initialisePalettes());
+    },[allMappings]);
+    
+  //DND Kit 2.0
+  const [activeId, setActiveId] = useState();
+    console.log(allPalettes);
+  const findContainer = (id) => {
+    if (id in allMappings) {
+      return id;
     }
 
+    return Object.keys(allMappings).find((key) => allMappings[key].includes(id));
+  }
+
+  const handleDragStart = (event) => {
+    const { active } = event;
+    const { id } = active;
+
+    setActiveId(id);
+  }
+
+  const handleDragOver = (event) => {
+    const { active, over, draggingRect } = event;
+    const activeContainer = findContainer(active.id);
+    const overContainer = findContainer(over.id);
+    if (
+      !activeContainer ||
+      !overContainer ||
+      activeContainer !== overContainer
+    ) {
+      return;
+    }
+    
+    setAllMappings((prev)=>{
+      const activeItems = prev[activeContainer]
+      const overItems = prev[overContainer]
+
+      const activeIndex = activeItems.indexOf(active.id);
+      const overIndex = overItems.indexOf(over.id);
+      return {
+        ...prev,
+        [activeContainer]: [
+          ...prev[activeContainer].slice(0, activeIndex),
+          prev[overContainer][overIndex], // Add the item from overContainer at newIndex
+          ...prev[activeContainer].slice(activeIndex+1)
+        ],
+        [overContainer]: [
+          ...prev[overContainer].slice(0, overIndex),
+          prev[activeContainer][activeIndex], // Add the item from activeContainer at activeIndex
+          ...prev[overContainer].slice(overIndex+1)
+        ]
+      };
+    })
+  }
+
+  const handleDragEnd = (event) => {
+    const { active, over } = event;
+    const activeContainer = findContainer(active.id);
+    const overContainer = findContainer(over.id);
+    if (
+      !activeContainer ||
+      !overContainer ||
+      activeContainer !== overContainer
+    ) {
+      return;
+    }
+    const activeIndex = allMappings[activeContainer].indexOf(active.id);
+    const overIndex = allMappings[overContainer].indexOf(over.id);
+    if (activeIndex !== overIndex) {
+      setAllMappings((items) => ({
+        ...items,
+        [overContainer]: arrayMove(items[overContainer], activeIndex, overIndex)
+      }));
+    }
+
+    setActiveId(null);
+  }
   return (
     <>
       <DndContext
         sensors={sensors}
         collisionDetection={closestCenter}
+        onDragStart={handleDragStart}
+        onDragOver={handleDragOver}
         onDragEnd={handleDragEnd}
       >
         {allPalettes.map((items) => (
-          <Palette key={items.name} paletteInstance={items}
+          <Palette key={items.palette.name} id={items.palette.name} palette={items.palette} items={items.items} activeId={activeId}
           />
         ))}
+        <DragOverlay>{activeId ? <Pan id={activeId} /> : null}</DragOverlay>
       </DndContext>
     </>
 
