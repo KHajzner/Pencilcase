@@ -23,17 +23,17 @@ const Palette = (
 
   const [paletteState, setPaletteState] = useState(palette.case_closed)
   const handleMouseEnter = () => {
-    if (paletteState != palette.case_open){
+    if (paletteState !== palette.case_open){
       setPaletteState(palette.case_hover);
     }
   };
   const handleMouseLeave = () => {
-    if (paletteState != palette.case_open){
+    if (paletteState !== palette.case_open){
       setPaletteState(palette.case_closed);
     }
   };
   const handleClick = () => {
-    const newState = paletteState == palette.case_open ? palette.case_closed :palette.case_open
+    const newState = paletteState === palette.case_open ? palette.case_closed :palette.case_open
     setPaletteState(newState);
   };
   //Add empty pans
@@ -80,7 +80,7 @@ const Palette = (
         onDragEnd={handleDragEnd}
       >
         <button className='palette' style={containerStyle} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} onClick={handleClick}>
-          {paletteState == palette.case_open && (
+          {paletteState === palette.case_open && (
           <SortableContext items={items} >
             {items.map(id => <Pan key={id.uid} id={id} colour={id.colour} />)}
           </SortableContext>) 
