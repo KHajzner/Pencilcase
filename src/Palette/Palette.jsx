@@ -17,8 +17,9 @@ import './Palette.css';
 import Pan from '../Pan/Pan';
 import addEmptyPans from '../utils/addEmptyPans'
 const Palette = (
-    paletteInstance
+   { paletteInstance }
 ) => {
+  const items = paletteInstance.items;
   const palette = paletteInstance.paletteInstance;
 
   const [paletteState, setPaletteState] = useState("closed")
@@ -36,34 +37,10 @@ const Palette = (
     const newState = paletteState === "open" ? "closed" : "open"
     setPaletteState(newState);
   };
-  //Add empty pans
-  const pans = addEmptyPans(palette.filledPans, palette.maxPans);
-  const [items, setItems] = useState(pans);
-
-  // DnD Kit
-  const sensors = useSensors(
-    useSensor(PointerSensor),
-    useSensor(KeyboardSensor, {
-      coordinateGetter: sortableKeyboardCoordinates,
-    })
-  );
-
-  const handleDragEnd = (event) => {
-    const {active, over} = event;
-
-    if (active.id !== over.id) {
-      setItems((items) => {
-        const oldIndex = items.indexOf(active.id)
-        const newIndex = items.indexOf(over.id)
-        return arrayMove(items, oldIndex, newIndex);
-      });
-    }
-  }
 
   //Styles
   const imageLink = require('../Items/Casings/' + palette.image[paletteState])
   const lidHeight =  parseInt((palette.height["open"]).replace("px", "")) - parseInt((palette.height["closed"]).replace("px", ""))
-  console.log(lidHeight)
   const containerStyle = {
     backgroundImage: `url(${imageLink})`, 
     backgroundPosition: "center",
@@ -74,11 +51,6 @@ const Palette = (
 
   return(
     <>
-      <DndContext
-        sensors={sensors}
-        collisionDetection={closestCenter}
-        onDragEnd={handleDragEnd}
-      >
         <button className='palette' style={containerStyle} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} onClick={handleClick}>
           {paletteState === "open" && (
           <SortableContext items={items} >
@@ -86,7 +58,7 @@ const Palette = (
           </SortableContext>) 
           }
         </button>
-      </DndContext>
+
     </>
   )
 }
