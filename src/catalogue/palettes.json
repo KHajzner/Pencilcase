@@ -1,18 +1,32 @@
 [
     {
         "name":"Lavender Palette",
-        "case_closed":"lavender-closed.png",
-        "case_hover":"lavender-unhinged.jpg",
-        "case_open":"lavender-open.jpg",
+        "image": { "closed":"lavender-closed.png",
+            "hover":"lavender-hover.png", 
+            "open":"lavender-open.png"},
         "location":"Poland",
-        "maxPans":"9",
+        "maxPans":"11",
         "filledPans":
         [
             {"uid": "0", "colour": "Yellow"},
             { "uid": "1", "colour": "Yellow"},
             {"uid": "2", "colour": "Yellow"}
         ],
-        "height":  "300px",
+        "height": { "closed":"300px", "hover":"350px", "open":"600px"},
         "width" : "400px"
+    },
+    {
+        "name":"Tulip Palette",
+        "image": { "closed":"tulips-closed.png",
+        "hover":"tulips-hover.png", 
+        "open":"tulips-open.png"},
+        "location":"England",
+        "maxPans":"15",
+        "filledPans":
+        [
+            
+        ],
+        "height": { "closed":"300px", "hover":"350px", "open":"600px"},
+        "width" : "500px"
     }
 ]

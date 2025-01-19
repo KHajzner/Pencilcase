@@ -21,19 +21,19 @@ const Palette = (
 ) => {
   const palette = paletteInstance.paletteInstance;
 
-  const [paletteState, setPaletteState] = useState(palette.case_closed)
+  const [paletteState, setPaletteState] = useState("closed")
   const handleMouseEnter = () => {
-    if (paletteState !== palette.case_open){
-      setPaletteState(palette.case_hover);
+    if (paletteState !== "open"){
+      setPaletteState("hover");
     }
   };
   const handleMouseLeave = () => {
-    if (paletteState !== palette.case_open){
-      setPaletteState(palette.case_closed);
+    if (paletteState !== "open"){
+      setPaletteState("closed");
     }
   };
   const handleClick = () => {
-    const newState = paletteState === palette.case_open ? palette.case_closed :palette.case_open
+    const newState = paletteState === "open" ? "closed" : "open"
     setPaletteState(newState);
   };
   //Add empty pans
@@ -61,15 +61,15 @@ const Palette = (
   }
 
   //Styles
-  const imageLink = require('../Items/Casings/' + paletteState)
-
+  const imageLink = require('../Items/Casings/' + palette.image[paletteState])
+  const lidHeight =  parseInt((palette.height["open"]).replace("px", "")) - parseInt((palette.height["closed"]).replace("px", ""))
+  console.log(lidHeight)
   const containerStyle = {
     backgroundImage: `url(${imageLink})`, 
     backgroundPosition: "center",
-    height: palette.height,
+    height: palette.height[paletteState],
     width: palette.width,
-    display: "grid",
-    gridTemplateColumns: "auto auto auto",
+    paddingTop: (lidHeight-25) + "px",
   }
 
   return(
@@ -80,9 +80,9 @@ const Palette = (
         onDragEnd={handleDragEnd}
       >
         <button className='palette' style={containerStyle} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} onClick={handleClick}>
-          {paletteState === palette.case_open && (
+          {paletteState === "open" && (
           <SortableContext items={items} >
-            {items.map(id => <Pan key={id.uid} id={id} colour={id.colour} />)}
+            {items.map(id => <Pan key={id.uid} id={id} colour={id.colour} height={palette.height["closed"]} />)}
           </SortableContext>) 
           }
         </button>
