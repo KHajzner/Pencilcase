@@ -21,6 +21,21 @@ const Palette = (
 ) => {
   const palette = paletteInstance.paletteInstance;
 
+  const [paletteState, setPaletteState] = useState(palette.case_closed)
+  const handleMouseEnter = () => {
+    if (paletteState != palette.case_open){
+      setPaletteState(palette.case_hover);
+    }
+  };
+  const handleMouseLeave = () => {
+    if (paletteState != palette.case_open){
+      setPaletteState(palette.case_closed);
+    }
+  };
+  const handleClick = () => {
+    const newState = paletteState == palette.case_open ? palette.case_closed :palette.case_open
+    setPaletteState(newState);
+  };
   //Add empty pans
   const pans = addEmptyPans(palette.filledPans, palette.maxPans);
   const [items, setItems] = useState(pans);
@@ -46,7 +61,7 @@ const Palette = (
   }
 
   //Styles
-  const imageLink = require('../Items/Casings/' + palette.case_closed)
+  const imageLink = require('../Items/Casings/' + paletteState)
 
   const containerStyle = {
     backgroundImage: `url(${imageLink})`, 
@@ -64,11 +79,13 @@ const Palette = (
         collisionDetection={closestCenter}
         onDragEnd={handleDragEnd}
       >
-        <div className='palette' style={containerStyle} >
+        <button className='palette' style={containerStyle} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} onClick={handleClick}>
+          {paletteState == palette.case_open && (
           <SortableContext items={items} >
             {items.map(id => <Pan key={id.uid} id={id} colour={id.colour} />)}
-          </SortableContext>
-        </div>
+          </SortableContext>) 
+          }
+        </button>
       </DndContext>
     </>
   )

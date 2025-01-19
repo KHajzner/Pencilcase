@@ -2,7 +2,7 @@
     {
         "name":"Lavender Palette",
         "case_closed":"lavender-closed.png",
-        "case_unhinged":"lavender-unhinged.jpg",
+        "case_hover":"lavender-unhinged.jpg",
         "case_open":"lavender-open.jpg",
         "location":"Poland",
         "maxPans":"9",
