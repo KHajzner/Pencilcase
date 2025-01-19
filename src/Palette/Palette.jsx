@@ -22,8 +22,7 @@ const Palette = (
 ) => {
   const palette = paletteInstance.paletteInstance;
 
-  const imageLink = require('../Items/Casings/' + palette.case_closed)
-  
+  //Add empty pans
   const pans = addEmptyPans(palette.filledPans, palette.maxPans);
   const [items, setItems] = useState(pans);
 
@@ -40,35 +39,38 @@ const Palette = (
 
     if (active.id !== over.id) {
       setItems((items) => {
-        const oldIndex = items.map(e => e.uid).indexOf(active.id)
-        const newIndex = items.map(e => e.uid).indexOf(over.id)
+        const oldIndex = items.indexOf(active.id)
+        const newIndex = items.indexOf(over.id)
         return arrayMove(items, oldIndex, newIndex);
       });
     }
   }
+
+  //Styles
+  const imageLink = require('../Items/Casings/' + palette.case_closed)
+
   const containerStyle = {
     backgroundImage: `url(${imageLink})`, 
     backgroundPosition: "center",
     height: palette.height,
-     width: palette.width,
-     zIndex: 1,
+    width: palette.width,
   }
 
-    return(
-      <>
-            <DndContext   sensors={sensors}
-                collisionDetection={closestCenter}
-                onDragEnd={handleDragEnd}>
-                <div className='palette' style={containerStyle} >
-
-              <SortableContext items={items}  strategy={verticalListSortingStrategy}>
-                {items.map(({uid, colour}) => <Pan key={uid} id={uid} colour={colour} />)}
-              </SortableContext>
-              
-              </div>
-            </DndContext>
-        </>
-    )
+  return(
+    <>
+      <DndContext
+        sensors={sensors}
+        collisionDetection={closestCenter}
+        onDragEnd={handleDragEnd}
+      >
+        <div className='palette' style={containerStyle} >
+          <SortableContext items={items}  strategy={verticalListSortingStrategy}>
+            {items.map(id => <Pan key={id.uid} id={id} colour={id.colour} />)}
+          </SortableContext>
+        </div>
+      </DndContext>
+    </>
+  )
 }
  
 export default Palette;
