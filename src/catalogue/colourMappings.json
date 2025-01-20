@@ -1,12 +1,110 @@
 {
-    "Lavender Palette":[
-        {"uid": "yellow-ochre", "colour": "Yellow"},
-        { "uid": "yellow-yellow", "colour": "Yellow"},
-        {"uid": "blueish-yellow", "colour": "Yellow"}
-    ],
-    "Tulip Palette":[
-        {"uid": "Green-ochre", "colour": "Yellow"},
-        { "uid": "Green-yellow", "colour": "Yellow"},
-        {"uid": "blueish-Green", "colour": "Yellow"}
-    ]
+  "Lavender Palette": [
+    {
+      "uid": "yellow-ochre",
+      "colour": "Yellow"
+    },
+    {
+      "uid": "3",
+      "colour": "EmptyPan"
+    },
+    {
+      "uid": "blueish-yellow",
+      "colour": "Yellow"
+    },
+    {
+      "uid": "6",
+      "colour": "EmptyPan"
+    },
+    {
+      "uid": "10",
+      "colour": "EmptyPan"
+    },
+    {
+      "uid": "4",
+      "colour": "EmptyPan"
+    },
+    {
+      "uid": "9",
+      "colour": "EmptyPan"
+    },
+    {
+      "uid": "5",
+      "colour": "EmptyPan"
+    },
+    {
+      "uid": "yellow-yellow",
+      "colour": "Yellow"
+    },
+    {
+      "uid": "8",
+      "colour": "EmptyPan"
+    },
+    {
+      "uid": "7",
+      "colour": "EmptyPan"
+    }
+  ],
+  "Tulip Palette": [
+    {
+      "uid": "Green-yellow",
+      "colour": "Yellow"
+    },
+    {
+      "uid": "14",
+      "colour": "EmptyPan"
+    },
+    {
+      "uid": "4",
+      "colour": "EmptyPan"
+    },
+    {
+      "uid": "5",
+      "colour": "EmptyPan"
+    },
+    {
+      "uid": "6",
+      "colour": "EmptyPan"
+    },
+    {
+      "uid": "7",
+      "colour": "EmptyPan"
+    },
+    {
+      "uid": "8",
+      "colour": "EmptyPan"
+    },
+    {
+      "uid": "blueish-Green",
+      "colour": "Yellow"
+    },
+    {
+      "uid": "9",
+      "colour": "EmptyPan"
+    },
+    {
+      "uid": "10",
+      "colour": "EmptyPan"
+    },
+    {
+      "uid": "Green-ochre",
+      "colour": "Yellow"
+    },
+    {
+      "uid": "11",
+      "colour": "EmptyPan"
+    },
+    {
+      "uid": "12",
+      "colour": "EmptyPan"
+    },
+    {
+      "uid": "3",
+      "colour": "EmptyPan"
+    },
+    {
+      "uid": "13",
+      "colour": "EmptyPan"
+    }
+  ]
 }
