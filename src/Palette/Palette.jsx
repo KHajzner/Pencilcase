@@ -1,26 +1,24 @@
 
 import React, { useState } from "react";
 import {
-  DndContext, 
-  closestCenter,
-  KeyboardSensor,
-  PointerSensor,
-  useSensor,
-  useSensors,
   useDroppable
 } from '@dnd-kit/core';
 import {
-  arrayMove,
   SortableContext,
-  sortableKeyboardCoordinates,
 } from '@dnd-kit/sortable';
+
 import './Palette.css';
+
 import Pan from '../Pan/Pan';
-import addEmptyPans from '../utils/addEmptyPans'
+import palettes from  '../catalogue/palettes.json'
+
 const Palette = (props
 ) => {
-  const { id, palette, items, activeId} = props;
+  const { id, items } = props;
+  const { setNodeRef } = useDroppable({ id });
+  const palette = palettes.find(instance => instance.name === id)
 
+  //States
   const [paletteState, setPaletteState] = useState("closed")
   const handleMouseEnter = () => {
     if (paletteState !== "open"){
@@ -47,16 +45,14 @@ const Palette = (props
     width: palette.width,
     padding: `${(lidHeight-25) + 'px'} 10px 0 10px`,
   }
-  const { setNodeRef } = useDroppable({
-    id
-  });
+
   return(
     <>
         <button className='palette' style={containerStyle} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} onClick={handleClick}>
           {paletteState === "open" && (
           <SortableContext items={items} id={id} >
             <div ref={setNodeRef}>
-              {items.map(id => <Pan key={id.uid} id={id} colour={id.colour} height={palette.height["closed"]} activeId={activeId} />)}
+              {items.map(id => <Pan key={id.uid} id={id} colour={id.colour} height={palette.height["closed"]}/>)}
             </div>
           </SortableContext>) 
           }

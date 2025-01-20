@@ -3,14 +3,15 @@ import React from 'react';
 import {useSortable} from '@dnd-kit/sortable';
 import {CSS} from '@dnd-kit/utilities';
 
-const Pan = (props) => { 
+const Pan = ({id}) => { 
     const {
         attributes,
         listeners,
         setNodeRef,
         transform,
         transition,
-    } = useSortable({id: props.id});
+        isDragging
+    } = useSortable({id});
 
     const style = {
     transform: CSS.Transform.toString(transform),
@@ -19,7 +20,7 @@ const Pan = (props) => {
 
     };
 
-    const panImage = require('../Items/Colours/' + props.id.colour + '.png')
+    const panImage = require('../Items/Colours/' + id.colour + '.png')
     const panStyle = {
         backgroundImage: `url(${panImage})`, 
         backgroundPosition: "center",
@@ -27,6 +28,7 @@ const Pan = (props) => {
         height: "80px",
         width: "70px",
         marginRight: "10px",
+        opacity: isDragging? 0.5 : 1
     }
 
     return (
