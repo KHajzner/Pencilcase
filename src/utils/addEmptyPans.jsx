@@ -8,6 +8,7 @@ const addEmptyPans = (filledPans, maxPans, name) => {
     const placeholders = Array.from({ length: extraElements }, (_, index) => ({
         uid: `${index + filledPans.length + name}`,
         colour: "EmptyPan", 
+        image: "EmptyPan.png"
         }));
     return filledPans.concat(placeholders);
 }

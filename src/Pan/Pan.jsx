@@ -20,7 +20,7 @@ const Pan = ({id}) => {
 
     };
 
-    const panImage = require('../Items/Colours/' + id.colour + '.png')
+    const panImage = require('../Items/Colours/' + id.image)
     const panStyle = {
         backgroundImage: `url(${panImage})`, 
         backgroundPosition: "center",

@@ -2,109 +2,147 @@
   "Lavender Palette": [
     {
       "uid": "yellow-ochre",
-      "colour": "Yellow"
+      "colour": "Yellow",
+      "image": "Yellow.png"
     },
     {
       "uid": "blueish-yellow",
-      "colour": "Yellow"
+      "colour": "Yellow",
+      "image": "Yellow.png"
     },
     {
       "uid": "3Lavender Palette",
-      "colour": "EmptyPan"
+      "colour": "EmptyPan",
+      "image": "EmptyPan.png"
     },
     {
       "uid": "Green-yellow",
-      "colour": "Yellow"
+      "colour": "Yellow",
+      "image": "Yellow.png"
     },
     {
       "uid": "4Lavender Palette",
-      "colour": "EmptyPan"
+      "colour": "EmptyPan",
+      "image": "EmptyPan.png"
     },
     {
       "uid": "8Tulip Palette",
-      "colour": "EmptyPan"
+      "colour": "EmptyPan",
+      "image": "EmptyPan.png"
     },
     {
       "uid": "yellow-yellow",
-      "colour": "Yellow"
+      "colour": "Yellow",
+      "image": "Yellow.png"
     },
     {
       "uid": "5Lavender Palette",
-      "colour": "EmptyPan"
+      "colour": "EmptyPan",
+      "image": "EmptyPan.png"
     },
     {
       "uid": "7Lavender Palette",
-      "colour": "EmptyPan"
+      "colour": "EmptyPan",
+      "image": "EmptyPan.png"
     },
     {
       "uid": "blueish-Green",
-      "colour": "Yellow"
+      "colour": "Yellow",
+      "image": "Yellow.png"
     },
     {
       "uid": "9Lavender Palette",
-      "colour": "EmptyPan"
+      "colour": "EmptyPan",
+      "image": "EmptyPan.png"
     }
   ],
   "Tulip Palette": [
     {
       "uid": "6Tulip Palette",
-      "colour": "EmptyPan"
+      "colour": "EmptyPan",
+      "image": "EmptyPan.png"
     },
     {
       "uid": "9Tulip Palette",
-      "colour": "EmptyPan"
+      "colour": "EmptyPan",
+      "image": "EmptyPan.png"
     },
     {
       "uid": "14Tulip Palette",
-      "colour": "EmptyPan"
+      "colour": "EmptyPan",
+      "image": "EmptyPan.png"
     },
     {
       "uid": "6Lavender Palette",
-      "colour": "EmptyPan"
+      "colour": "EmptyPan",
+      "image": "EmptyPan.png"
     },
     {
       "uid": "8Lavender Palette",
-      "colour": "EmptyPan"
+      "colour": "EmptyPan",
+      "image": "EmptyPan.png"
     },
     {
       "uid": "3Tulip Palette",
-      "colour": "EmptyPan"
+      "colour": "EmptyPan",
+      "image": "EmptyPan.png"
     },
     {
       "uid": "4Tulip Palette",
-      "colour": "EmptyPan"
+      "colour": "EmptyPan",
+      "image": "EmptyPan.png"
     },
     {
       "uid": "5Tulip Palette",
-      "colour": "EmptyPan"
+      "colour": "EmptyPan",
+      "image": "EmptyPan.png"
     },
     {
       "uid": "7Tulip Palette",
-      "colour": "EmptyPan"
+      "colour": "EmptyPan",
+      "image": "EmptyPan.png"
     },
     {
       "uid": "10Tulip Palette",
-      "colour": "EmptyPan"
+      "colour": "EmptyPan",
+      "image": "EmptyPan.png"
     },
     {
       "uid": "11Tulip Palette",
-      "colour": "EmptyPan"
+      "colour": "EmptyPan",
+      "image": "EmptyPan.png"
     },
     {
       "uid": "Green-ochre",
-      "colour": "Yellow"
+      "colour": "Yellow",
+      "image": "Yellow.png"
     },
     {
       "uid": "12Tulip Palette",
-      "colour": "EmptyPan"
+      "colour": "EmptyPan",
+      "image": "EmptyPan.png"
     },
     {
       "uid": "10Lavender Palette",
-      "colour": "EmptyPan"
+      "colour": "EmptyPan",
+      "image": "EmptyPan.png"
     },
     {
       "uid": "13Tulip Palette",
-      "colour": "EmptyPan"
+      "colour": "EmptyPan",
+      "image": "EmptyPan.png"
+    }
+  ],
+  "Daler Rowney Palette": [
+    {
+      "uid": "daler-rowney-aquafine-065",
+      "colour": "Payne's Grey",
+      "image": "dr-paynes-grey-065.png"
+    }, 
+    {
+      "uid": "daler-rowney-aquafine-123",
+      "colour": "Ultramarine",
+      "image": "dr-ultramarine-123.png"
     }
   ]
 }

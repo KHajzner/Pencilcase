@@ -1,22 +1,44 @@
 [
     {
         "name":"Lavender Palette",
-        "image": { "closed":"lavender-closed.png",
+        "image":
+        {
+            "closed":"lavender-closed.png",
             "hover":"lavender-hover.png", 
-            "open":"lavender-open.png"},
+            "open":"lavender-open.png"
+        },
         "location":"Poland",
         "maxPans":"11",
         "height": { "closed":"300px", "hover":"350px", "open":"600px"},
-        "width" : "400px"
+        "width" : "400px",
+        "sidePadding" : "20px"
     },
     {
         "name":"Tulip Palette",
-        "image": { "closed":"tulips-closed.png",
-        "hover":"tulips-hover.png", 
-        "open":"tulips-open.png"},
+        "image": 
+        { 
+            "closed":"tulips-closed.png",
+            "hover":"tulips-hover.png", 
+            "open":"tulips-open.png"
+        },
         "location":"England",
         "maxPans":"15",
         "height": { "closed":"300px", "hover":"350px", "open":"600px"},
-        "width" : "500px"
+        "width" : "500px",
+        "sidePadding" : "20px"
+    },
+    {
+        "name":"Daler Rowney Palette",
+        "image": 
+        { 
+            "closed":"daler-rowney-closed.png",
+            "hover":"daler-rowney-hover.png", 
+            "open":"daler-rowney-open.png"
+        },
+        "location":"England",
+        "maxPans":"12",
+        "height": { "closed":"300px", "hover":"350px", "open":"600px"},
+        "width" : "700px",
+        "sidePadding" : "80px"
     }
 ]

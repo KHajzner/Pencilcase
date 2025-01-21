@@ -43,7 +43,7 @@ const Palette = (props
     backgroundPosition: "center",
     height: palette.height[paletteState],
     width: palette.width,
-    padding: `${(lidHeight-25) + 'px'} 10px 0 10px`,
+    padding: `${(lidHeight-25) + 'px'} ${palette?.sidePadding} 0 ${palette?.sidePadding}`,
   }
 
   return(
