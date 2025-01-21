@@ -63,11 +63,6 @@
       "image": "EmptyPan.png"
     },
     {
-      "uid": "9Tulip Palette",
-      "colour": "EmptyPan",
-      "image": "EmptyPan.png"
-    },
-    {
       "uid": "14Tulip Palette",
       "colour": "EmptyPan",
       "image": "EmptyPan.png"
@@ -128,6 +123,11 @@
       "image": "EmptyPan.png"
     },
     {
+      "uid": "9Tulip Palette",
+      "colour": "EmptyPan",
+      "image": "EmptyPan.png"
+    },
+    {
       "uid": "13Tulip Palette",
       "colour": "EmptyPan",
       "image": "EmptyPan.png"
@@ -135,14 +135,64 @@
   ],
   "Daler Rowney Palette": [
     {
-      "uid": "daler-rowney-aquafine-065",
-      "colour": "Payne's Grey",
-      "image": "dr-paynes-grey-065.png"
-    }, 
+      "uid": "daler-rowney-aquafine-651",
+      "colour": "Lemon Yellow",
+      "image": "dr-aquafine-651.png"
+    },
+    {
+      "uid": "daler-rowney-aquafine-640",
+      "colour": "Gambose Hue",
+      "image": "dr-aquafine-640.png"
+    },
+    {
+      "uid": "daler-rowney-aquafine-503",
+      "colour": "Cadmium Red",
+      "image": "dr-aquafine-503.png"
+    },
+    {
+      "uid": "daler-rowney-aquafine-515",
+      "colour": "Alizarin Crimson Hue",
+      "image": "dr-aquafine-515.png"
+    },
+    {
+      "uid": "daler-rowney-aquafine-110",
+      "colour": "Cobalt Blue",
+      "image": "dr-aquafine-110.png"
+    },
     {
       "uid": "daler-rowney-aquafine-123",
       "colour": "Ultramarine",
-      "image": "dr-ultramarine-123.png"
+      "image": "dr-aquafine-123.png"
+    },
+    {
+      "uid": "daler-rowney-aquafine-663",
+      "colour": "Yellow Ochre",
+      "image": "dr-aquafine-663.png"
+    },
+    {
+      "uid": "daler-rowney-aquafine-527",
+      "colour": "Light Red",
+      "image": "dr-aquafine-527.png"
+    },
+    {
+      "uid": "daler-rowney-aquafine-667",
+      "colour": "Raw Sienna",
+      "image": "dr-aquafine-667.png"
+    },
+    {
+      "uid": "daler-rowney-aquafine-221",
+      "colour": "Burnt Sienna",
+      "image": "dr-aquafine-221.png"
+    },
+    {
+      "uid": "daler-rowney-aquafine-352",
+      "colour": "Hooker's Green",
+      "image": "dr-aquafine-352.png"
+    },
+    {
+      "uid": "daler-rowney-aquafine-065",
+      "colour": "Payne's Grey",
+      "image": "dr-aquafine-065.png"
     }
   ]
 }

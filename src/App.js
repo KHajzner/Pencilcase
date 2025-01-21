@@ -88,6 +88,9 @@ const App = () => {
       }))
     }
     else{
+      if (!overContainer){
+        return;
+      }
       const activePans =  allMappings[activeContainer]
       const activeIndex = (activePans.indexOf(activeId))
       activePans.splice(activeIndex,1)
@@ -106,7 +109,7 @@ const App = () => {
     }
   }
   return (
-    <>
+    <div className="App">
       <DndContext
         sensors={sensors}
         onDragStart={handleDragStart}
@@ -122,7 +125,7 @@ const App = () => {
         ))}
         <DragOverlay>{activeId ? <Pan id={activeId} /> : null}</DragOverlay>
       </DndContext>
-    </>
+    </div>
   );
 
 };

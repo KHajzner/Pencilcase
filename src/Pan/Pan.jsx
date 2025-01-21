@@ -27,7 +27,7 @@ const Pan = ({id}) => {
         backgroundSize: "contain",
         height: "80px",
         width: "70px",
-        marginRight: "10px",
+        margin: " 0 4px 0 4px",
         opacity: isDragging? 0.5 : 1
     }
 
