@@ -39,7 +39,7 @@ const App = () => {
   //Fill In blanks with EmptyPans
   const initialiseEmptyPans = () => {
     return palettes.reduce((acc, palette) => {
-      acc[palette.name] = addEmptyPans(mappings[palette.name], palette.maxPans);
+      acc[palette.name] = addEmptyPans(mappings[palette.name], palette.maxPans, palette.name);
       return acc;
     }, {});
   };
@@ -67,6 +67,9 @@ const App = () => {
 
   const handleDragEnd = (event) => {
     const { active, over } = event;
+    if (!over){
+      return;
+    }
     const activeId = active.id;
     const overId = over.id;
 
