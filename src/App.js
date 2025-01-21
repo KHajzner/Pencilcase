@@ -56,7 +56,7 @@ const App = () => {
   };
 
   useEffect(()=>{
-      saveMappings();
+    saveMappings();
   }, [allMappings])
 
   //Handle Drag Events
@@ -72,10 +72,9 @@ const App = () => {
     }
     const activeId = active.id;
     const overId = over.id;
-
+    
     const activeContainer = Object.keys(allMappings).find((key) => allMappings[key].includes(activeId))
     const overContainer = Object.keys(allMappings).find((key) => allMappings[key].includes(overId))
-
     if(activeContainer === overContainer){
       const currentPans =  allMappings[activeContainer]
       const updatedPans = arrayMove(
@@ -83,14 +82,27 @@ const App = () => {
         currentPans.indexOf(activeId),
         currentPans.indexOf(overId)
       );
-      console.log("hello")
       setAllMappings((prevData) => ({
         ...prevData,
         [activeContainer]: updatedPans
       }))
     }
     else{
-      //TODO
+      const activePans =  allMappings[activeContainer]
+      const activeIndex = (activePans.indexOf(activeId))
+      activePans.splice(activeIndex,1)
+      activePans.splice(activeIndex, 0, overId)
+
+      const overPans = allMappings[overContainer]
+      const overIndex = (overPans.indexOf(overId))
+      overPans.splice(overIndex,1)
+      overPans.splice(overIndex, 0, activeId)
+
+      setAllMappings((prevData) => ({
+        ...prevData,
+        [activeContainer]: activePans,
+        [overContainer]: overPans
+      }))
     }
   }
   return (

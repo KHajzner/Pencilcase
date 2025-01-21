@@ -1,12 +1,110 @@
 {
-  "Lavender Palette":[
-      {"uid": "yellow-ochre", "colour": "Yellow"},
-      { "uid": "yellow-yellow", "colour": "Yellow"},
-      {"uid": "blueish-yellow", "colour": "Yellow"}
+  "Lavender Palette": [
+    {
+      "uid": "yellow-ochre",
+      "colour": "Yellow"
+    },
+    {
+      "uid": "blueish-yellow",
+      "colour": "Yellow"
+    },
+    {
+      "uid": "3Lavender Palette",
+      "colour": "EmptyPan"
+    },
+    {
+      "uid": "Green-yellow",
+      "colour": "Yellow"
+    },
+    {
+      "uid": "4Lavender Palette",
+      "colour": "EmptyPan"
+    },
+    {
+      "uid": "8Tulip Palette",
+      "colour": "EmptyPan"
+    },
+    {
+      "uid": "yellow-yellow",
+      "colour": "Yellow"
+    },
+    {
+      "uid": "5Lavender Palette",
+      "colour": "EmptyPan"
+    },
+    {
+      "uid": "7Lavender Palette",
+      "colour": "EmptyPan"
+    },
+    {
+      "uid": "blueish-Green",
+      "colour": "Yellow"
+    },
+    {
+      "uid": "9Lavender Palette",
+      "colour": "EmptyPan"
+    }
   ],
-  "Tulip Palette":[
-      {"uid": "Green-ochre", "colour": "Yellow"},
-      { "uid": "Green-yellow", "colour": "Yellow"},
-      {"uid": "blueish-Green", "colour": "Yellow"}
+  "Tulip Palette": [
+    {
+      "uid": "6Tulip Palette",
+      "colour": "EmptyPan"
+    },
+    {
+      "uid": "9Tulip Palette",
+      "colour": "EmptyPan"
+    },
+    {
+      "uid": "14Tulip Palette",
+      "colour": "EmptyPan"
+    },
+    {
+      "uid": "6Lavender Palette",
+      "colour": "EmptyPan"
+    },
+    {
+      "uid": "8Lavender Palette",
+      "colour": "EmptyPan"
+    },
+    {
+      "uid": "3Tulip Palette",
+      "colour": "EmptyPan"
+    },
+    {
+      "uid": "4Tulip Palette",
+      "colour": "EmptyPan"
+    },
+    {
+      "uid": "5Tulip Palette",
+      "colour": "EmptyPan"
+    },
+    {
+      "uid": "7Tulip Palette",
+      "colour": "EmptyPan"
+    },
+    {
+      "uid": "10Tulip Palette",
+      "colour": "EmptyPan"
+    },
+    {
+      "uid": "11Tulip Palette",
+      "colour": "EmptyPan"
+    },
+    {
+      "uid": "Green-ochre",
+      "colour": "Yellow"
+    },
+    {
+      "uid": "12Tulip Palette",
+      "colour": "EmptyPan"
+    },
+    {
+      "uid": "10Lavender Palette",
+      "colour": "EmptyPan"
+    },
+    {
+      "uid": "13Tulip Palette",
+      "colour": "EmptyPan"
+    }
   ]
 }
